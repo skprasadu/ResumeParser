@@ -10,7 +10,7 @@ PHONE_REGEX = r"\(?(\d{3})?\)?[\s\.-]{0,2}?(\d{3})[\s\.-]{0,2}(\d{4})"
 
 def candidate_name_extractor(input_string, nlp):
 
-    doc = nlp(input_string)
+    doc = nlp(str(input_string))
 
     # Extract entities
     doc_entities = doc.ents

@@ -97,7 +97,7 @@ def term_count(string_to_search, term):
     """
     try:
         regular_expression = re.compile(term, re.IGNORECASE)
-        result = re.findall(regular_expression, string_to_search)
+        result = re.findall(regular_expression, str(string_to_search))
         return len(result)
     except Exception:
         logging.error('Error occurred during regex search')
@@ -116,7 +116,7 @@ def term_match(string_to_search, term):
     """
     try:
         regular_expression = re.compile(term, re.IGNORECASE)
-        result = re.findall(regular_expression, string_to_search)
+        result = re.findall(regular_expression, str(string_to_search))
         if len(result) > 0:
             return result[0]
         else:
@@ -137,7 +137,7 @@ def convert_pdf(f):
     pdf2text.main(args=[f, '--outfile', output_filepath])
 
     # Return contents of intermediate output file
-    return open(output_filepath).read()
+    return open(output_filepath, 'rb').read()
 
 
 
